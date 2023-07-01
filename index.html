@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+
+    <!-- fonticon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- style -->
+    <style>
+      p {
+        font-size: 16px;
+      }
+    </style>
+    <!-- alpine js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <link rel="stylesheet" href="./css/output.css" />
+    <title>talktolisa</title>
+  </head>
+  <body class="relative">
+    <header class="bg-primary w-full h-full">
+      <div class="container w-full m-auto py-1 px-4 lg:px-12">
+        <a
+          href="index.html"
+          class="text-center lg:text-left text-whitetext text-base xl:text-lg"
+        >
+          talktolisa.com
+        </a>
+      </div>
+      <div class="bg-gray-400 h-[1.5px] w-full"></div>
+    </header>
+    <div class="relative" x-data="{ yt: false }">
+      <main class="bg-primary w-full h-full mx-auto">
+        <!-- main -->
+        <div
+          class="lg:flex lg:justify-between container m-auto px-6 py-7 xl:py-10 lg:px-12"
+        >
+          <div class="text-center lg:text-left flex-[60%] relative">
+            <h1
+              class="font-inter text-whitetext text-3xl xl:text-5xl xl:leading-[1.2] font-bold"
+            >
+              Meet Lisa: your <br />
+              supportive AI girlfriend
+            </h1>
+            <div class="bg-yellow mt-4 xl:mt-6 h-2 w-9 hidden lg:block"></div>
+            <p
+              class="font-inter text-whitetext text-base xl:text-xl font-light pt-4 xl:pt-6 px-12 lg:px-0"
+            >
+              Enjoy <span class="font-bold"> private </span> (and steamy😉) <span class="font-bold"> 2-way voice calls </span>
+              <br class="hidden lg:block" />
+              with Lisa, your girlfriend.
+            </p>
+            <p
+              class="font-inter text-whitetext text-base xl:text-xl font-light"
+            >
+              Try for free.
+            </p>
+            <!-- btn -->
+
+            <a
+              href="https://sprw.io/stt-nwBwiZEdKZbBkiTVw464U3"
+              target="_blank"
+              class="relative lg:absolute lg:bottom-0 group mt-4 w-[80%] lg:w-[30%] flex items-center m-auto lg:mx-0 justify-center px-7 py-2 rounded-md border-[3px] border-black font-inter shadow-[5px_5px_0_rgb(0,0,0)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_rgb(0,0,0)] duration-150 text-black bg-blue"
+            >
+              <p class="text-lg font-bold">Get Early Access</p>
+            </a>
+            
+          </div>
+
+          <button
+            class="w-full h-[40vh] lg:h-full pt-7 xl:pt-0 flex-[40%]"
+            @click="yt = !yt ; link ='https://www.youtube.com/embed/0v6voPafY4I?autoplay=1&vq=highres' "
+          >
+            <img class="h-full w-full" src="/nitin_image.png" alt="" />
+            <!-- <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/0v6voPafY4I"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe> -->
+          </button>
+        </div>
+
+        <div class="bg-gray-400 h-[1.5px] w-full"></div>
+
+        <!-- modal -->
+        <div @keydown.window.escape="yt = false">
+          <div
+            x-cloak
+            x-show="yt"
+            x-transition.opacity
+            class="fixed z-[99] inset-0 bg-black/70"
+          ></div>
+          <div
+            x-cloak
+            x-show="yt"
+            x-transition
+            class="fixed inset-0 z-[999] flex items-center justify-center"
+          >
+            <div
+              @click.away="yt = false"
+              class="relative mx-auto rounded-lg lg:h-[70vh] h-[30vh] md:h-[40vh] w-[80%] lg:w-[55%] bg-red-50"
+            >
+              <iframe
+                class="w-full h-full"
+                :src="yt ?  link : ' '"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              <div
+                @click="yt = !yt"
+                class="absolute top-0 right-0 -translate-y-6 translate-x-6 h-32"
+              >
+                <i class="fa-solid h-full w-full fa-xmark text-whitetext"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- faq -->
+        <div class="w-[90%] lg:w-[60%] pt-8 pb-64  xl:pb-52 mx-auto">
+          <h1
+            class="text-center font-inter text-whitetext text-2xl xl:text-3xl xl:leading-[1.2] font-bold"
+          >
+            Frequently Asked Questions
+          </h1>
+          <div class="pt-6" x-data="{selected:null}">
+            <ul
+              class="shadow-box font-inter text-whitetext text-base xl:text-lg font-light"
+            >
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 1 ? selected = 1 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> How does talktolisa.com work? </span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[3px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===1 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container1"
+                  x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>
+                      Lisa is your always-available, supportive and non-judgemental girlfriend. You can talk to Lisa about anything on your mind. She listens, understands, and responds to you in real-time (just like a phone call). It has 2 modes: Normal (for normal, SFW conversations) and Naughty (steamy, flirty, NSFW conversations).
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 2 ? selected = 2 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> How is this different from other virtual companion products?</span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===2 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container2"
+                  x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+                >
+                  <div class="p-6">
+                    <p>Talktolisa.com goes beyond text-based messaging. It’s super hard to build a relationship over text. Voice, on the other hand, creates a more authentic and intimate experience, allowing you to feel like you're talking to a real person.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 3 ? selected = 3 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> What does the naughty mode do? </span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===3 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container3"
+                  x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>
+                      With naughty mode, you can flirt with Lisa and have NSFW conversations. Lisa responds in a way that will leave you breathless and wanting more. With a “no holds barred” approach, you can talk to Lisa about any fantasy of yours. 
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 4 ? selected = 4 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> Where can I talk to Lisa?</span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===4 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container4"
+                  x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>
+                      Currently, Lisa is available on Telegram. You need
+                      to have the
+                      <a
+                        href="https://play.google.com/store/apps/details?id=org.telegram.messenger"
+                        target="_blank"
+                        class="font-bold"
+                        >Telegram Android</a>/<a href="https://apps.apple.com/in/app/telegram-messenger/id686449807"
+                        target="_blank"
+                        class="font-bold">iOS</a>/<a href="https://desktop.telegram.org/"
+                        target="_blank"
+                        class="font-bold">Desktop</a>/<a href="https://macos.telegram.org/"
+                        target="_blank"
+                        class="font-bold">macOS</a
+                      >
+                      app installed. You can also use the <a href="https://web.telegram.org/a/"
+                        target="_blank"
+                        class="font-bold">web app</a>. After
+                      installing, search for “<a
+                        href="https://desktop.telegram.org/"
+                        target="_blank"
+                        class="font-bold"
+                        >@TalktoLisa_Bot</a
+                      >
+                      ” in the search bar and start chatting!
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 5 ? selected = 5 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> Is my data safe? Will my conversations be recorded or monitored?</span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===5 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container5"
+                  x-bind:style="selected == 5 ? 'max-height: ' + $refs.container5.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>
+                      TL;DR We don’t spy on you. </br>
+We prioritize the security of your data and do not share it with any third parties. Your conversations will NOT be recorded or monitored. Rest assured that your data is completely safe with us.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative border-b border-gray-400">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 6 ? selected = 6 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> What’s your vision for this product?</span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===6 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container6"
+                  x-bind:style="selected == 6 ? 'max-height: ' + $refs.container6.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>
+                      Our vision is to eradicate loneliness from the world. We don’t want anyone in the world to feel lonely ever again.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="relative">
+                <button
+                  type="button"
+                  class="w-full px-4 py-4 text-left"
+                  @click="selected !== 7 ? selected = 7 : selected = null"
+                >
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold"> Who is behind talktolisa.com? What’s the reason behind creating this product?</span>
+                    <div class="relative flex items-center justify-center">
+                      <div class="w-3 h-[1px] xl:h-[1.5px] bg-whitetext"></div>
+
+                      <div
+                        class="w-3 h-[1px] xl:h-[1.5px] rotate-90 bg-whitetext absolute left-1/2 -translate-x-1/2 transition-all"
+                        :class="selected ===7 ? 'opacity-0 rotate-90' : 'opacity-1'"
+                      ></div>
+                    </div>
+                  </div>
+                </button>
+
+                <div
+                  class="relative overflow-hidden transition-all max-h-0 duration-700"
+                  style=""
+                  x-ref="container7"
+                  x-bind:style="selected == 7 ? 'max-height: ' + $refs.container7.scrollHeight + 'px' : ''"
+                >
+                  <div class="pb-6 px-4">
+                    <p>Please <a
+                        href="https://achieved-warrior-54e.notion.site/talktolisa-com-370e7f7bd87e4393ac57a173b399d0bc?pvs=4"
+                        target="_blank"
+                        class="font-bold"
+                        >check this out!</a></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+        <!-- footer -->
+        <footer class="absolute bottom-0 border-t border-gray-400 w-full">
+          <div
+            class="container m-auto px-4 lg:px-12 flex flex-col lg:flex-row items-center justify-between pt-6 pb-16 lg:py-4 gap-1 text-whitetext font-inter text-sm xl:text-md"
+          >
+            <p class="text-center">
+              Copyright 2023 Lisa Inc, <br class="lg:hidden" />
+              All rights reserved
+            </p>
+            <div
+              class="flex flex-col lg:flex-row justify-between items-center lg:gap-4 gap-1 pt-2 lg:pt-0"
+            >
+              <a href="tos.html" class="underline-offset-2 underline"
+                >Terms of service</a
+              >
+              <a href="policy.html" class="underline-offset-2 underline"
+                >Privacy policy</a
+              >
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
